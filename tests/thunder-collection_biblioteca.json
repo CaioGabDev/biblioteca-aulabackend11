@@ -1,0 +1,138 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Biblioteca CloudTech Solutions",
+  "dateExported": "2026-10-29T00:00:00.000Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "b1000000-0000-4000-8000-000000000001",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "GET / - Pagina inicial",
+      "url": "http://localhost:8082/",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" }
+      ]
+    },
+    {
+      "_id": "b1000000-0000-4000-8000-000000000002",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "GET /livros - Consultar livros",
+      "url": "http://localhost:8082/livros",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" },
+        { "type": "json-query", "custom": "json[0].titulo", "action": "equal", "value": "Introducao a Programacao" }
+      ]
+    },
+    {
+      "_id": "b1000000-0000-4000-8000-000000000003",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "POST /livros/cadastrar - Cadastrar livro",
+      "url": "http://localhost:8082/livros/cadastrar",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"titulo\": \"Banco de Dados para Iniciantes\",\n  \"autor\": \"Maria Souza\",\n  \"editora\": \"EduTech\",\n  \"ano\": 2023,\n  \"categoria\": \"Informatica\",\n  \"status\": \"Disponivel\"\n}",
+        "form": []
+      },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "201" }
+      ]
+    },
+    {
+      "_id": "b1000000-0000-4000-8000-000000000004",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "PUT /livros/alterar/3 - Alterar livro",
+      "url": "http://localhost:8082/livros/alterar/3",
+      "method": "PUT",
+      "sortNum": 40000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"titulo\": \"Banco de Dados Essencial\",\n  \"autor\": \"Maria Souza\",\n  \"editora\": \"EduTech\",\n  \"ano\": 2024,\n  \"categoria\": \"Banco de Dados\",\n  \"status\": \"Emprestado\"\n}",
+        "form": []
+      },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" },
+        { "type": "json-query", "custom": "json.status", "action": "equal", "value": "Emprestado" }
+      ]
+    },
+    {
+      "_id": "b1000000-0000-4000-8000-000000000005",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "GET /livros/2 - Consultar por ID",
+      "url": "http://localhost:8082/livros/2",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" },
+        { "type": "json-query", "custom": "json.titulo", "action": "equal", "value": "Redes de Computadores" }
+      ]
+    },
+    {
+      "_id": "b1000000-0000-4000-8000-000000000006",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "GET /livros/99 - Inexistente (404)",
+      "url": "http://localhost:8082/livros/99",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "404" }
+      ]
+    },
+    {
+      "_id": "b1000000-0000-4000-8000-000000000007",
+      "colId": "b1000000-0000-4000-8000-00000000000f",
+      "containerId": "",
+      "name": "GET /documentacao - Documentacao",
+      "url": "http://localhost:8082/documentacao",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2026-10-29T00:00:00.000Z",
+      "modified": "2026-10-29T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" }
+      ]
+    }
+  ]
+}
